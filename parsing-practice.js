@@ -59,7 +59,7 @@ async function getData() {
       }
     }));
     
-    fs.writeFileSync('./quote.json', JSON.stringify(data));
+    fs.writeFileSync('./quote.json', JSON.stringify(data, null, 2));
     // console.log(data);
   } catch (err) {
     console.log(err);
