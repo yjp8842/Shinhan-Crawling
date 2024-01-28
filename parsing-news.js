@@ -1,8 +1,6 @@
 import axios from "axios";
 import * as cheerio from 'cheerio';
 
-import https from 'https';
-
 async function getData() {
   const url = 'https://search.naver.com/search.naver?where=news&sm=tab_jum&query=%EC%9D%B4%EC%B0%A8%EC%A0%84%EC%A7%80';
   const data = [];
@@ -16,7 +14,7 @@ async function getData() {
       const title = $(el).find('.news_contents a.news_tit').text();
       const press = $(el).find('.info_group > a').text();
       const summary = $(el).find('a.dsc_txt_wrap').text();
-      const imgData = $(el).find('.dsc_thumb img').prop('src');
+      const imgData = $(el).find('.dsc_thumb img').prop('data-lazysrc');
 
       const detailUrl = $(el).find('a.news_tit').prop('href');
       
