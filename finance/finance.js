@@ -50,10 +50,10 @@ async function fetchDailyPrice(url) {
 
 async function crawlFinance() {
   const code = '005930'; // 삼성전자의 종목 코드
-  const url = `https://finance.naver.com/item/sise_day.nhn?code=${code}`; // 1 페이지의 URL
+  const url = `https://finance.naver.com/item/sise_day.naver?code=${code}`; // 1 페이지의 URL
   const dailyPrices = await fetchDailyPrice(url);
 
-  fs.writeFileSync('./dailyPrice.json', JSON.stringify(dailyPrices, null, 2));
+  fs.writeFileSync('./finance.json', JSON.stringify(dailyPrices, null, 2));
   // console.log(dailyPrices);
 }
 

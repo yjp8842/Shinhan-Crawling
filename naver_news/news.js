@@ -1,6 +1,8 @@
 import axios from "axios";
 import * as cheerio from 'cheerio';
 
+import fs from 'fs';
+
 async function getData() {
   const url = 'https://search.naver.com/search.naver?where=news&sm=tab_jum&query=%EC%9D%B4%EC%B0%A8%EC%A0%84%EC%A7%80';
   const data = [];
@@ -29,7 +31,6 @@ async function getData() {
         try {
           const res = await axios.get(detail_url);
           const $ = cheerio.load(res.data);
-
           const article_detail = $.html();
 
           return article_detail;
@@ -49,7 +50,7 @@ async function getData() {
       }
     }));
 
-    console.log(data);
+    fs.writeFileSync('./news.json', JSON.stringify(data, null, 2));
     // console.log($('a.news_tit').text());
   } catch (err) {
     // console.log(err);
