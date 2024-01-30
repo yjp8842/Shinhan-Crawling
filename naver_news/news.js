@@ -57,10 +57,12 @@ async function getData() {
 
           const article_detail = res.data;
 
-          return article_detail;
+          // return article_detail;
         } catch (err) {
           // console.log(err);
         }
+
+        return detail_url;
       }
 
       const article_detail = await getDetail();
