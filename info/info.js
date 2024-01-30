@@ -29,9 +29,9 @@ async function fetchInfo(url) {
         let date = $(row[2]).text().trim();
         if (date) {
           infos.push({ 
-            '제목': title, 
-            '정보제공': from,
-            '날짜': date
+            'title': title, 
+            'from': from,
+            'date': date
           });
         }
       }
