@@ -26,6 +26,7 @@ async function getData() {
       const press = $(el).find('.info_group > a').text();
       const summary = $(el).find('a.dsc_txt_wrap').text();
       const imgData = $(el).find('.dsc_thumb img').prop('data-lazysrc');
+      const imgBase64 = $(el).find('.dsc_thumb img').prop('src');
 
       // 이미지 url을 이용해 이미지 파일로 저장
       if (imgData) {
@@ -35,8 +36,6 @@ async function getData() {
           },
           responseType: 'arraybuffer'
         });
-
-        // console.log(imgResult.data);
         
         fs.writeFileSync(`img/${i}.jpg`, imgResult.data);
       }
@@ -73,6 +72,7 @@ async function getData() {
         'summary': summary,
         'image_url': imgData,
         'details': article_detail,
+        'img': imgBase64,
       }
     }));
 
