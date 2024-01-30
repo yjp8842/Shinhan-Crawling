@@ -29,13 +29,13 @@ async function fetchDailyPrice(url) {
         let volume = $(row[6]).text().trim();
         if(date) {
           dailyPrices.push({ 
-            '날짜': date, 
-            '종가': close,
-            '전일비': previous,
-            '시가': market,
-            '고가': high,
-            '저가': low,
-            '거래량': volume 
+            'date': date, 
+            'close': close,
+            'previous': previous,
+            'market': market,
+            'high': high,
+            'low': low,
+            'volume': volume 
           });
         }
       }
